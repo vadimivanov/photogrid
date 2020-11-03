@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Photos</h2>
+    <mat-list class="app-list">
+      <mat-list-item *ngFor="let photo of photoList">
+        <img matListAvatar [src]="photo.photo_url" alt="image">
+        <h3 matLine (click)="goDetails(photo.id)"> {{photo.name}} </h3>
+
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
