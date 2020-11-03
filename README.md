@@ -1,4 +1,4 @@
 # photogrid
 ## run app
-npm i - for install dependencies
-npm start - for run app
+1. npm i - for install dependencies
+2. npm start - for run app
