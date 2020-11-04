@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../shared/data.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  private photoId: string;
+  photoDetails: any;
 
-  constructor() { }
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.photoId = params.photoId;
+      this.dataService.getDetails(this.photoId).subscribe(photo => {
+        this.photoDetails = photo;
+      });
+    });
   }
-
 }

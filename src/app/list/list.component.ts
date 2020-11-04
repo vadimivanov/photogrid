@@ -17,13 +17,12 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getPhotoList().subscribe(list => {
-      this.photoList = list;
-      console.log('this.photoList ', this.photoList);
+      this.photoList = list.pictures;
     });
   }
 
-  goDetails(id){
-    // this.router.navigate(['details'], {queryParams: {photoId: photoId}});
+  goDetails(photoId){
+    this.router.navigate(['details'], {queryParams: {photoId}});
   }
 
 }
